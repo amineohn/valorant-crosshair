@@ -1,4 +1,15 @@
-export default function Home() {
+import useSWR from "swr";
+import fetcher from "../libs/fetcher";
+
+async function getData() {
+  const response = useSWR("/api/crosshairs", fetcher);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const data = await response.data;
+  console.log(data);
+  return data;
+}
+// https://blog.appsignal.com/2022/11/02/whats-new-in-nextjs-13.html
+export default async function Home() {
   const crosshairs = [
     {
       id: 1,
@@ -12,6 +23,8 @@ export default function Home() {
     },
   ];
   //https://www.serilineups.com/crosshairlar.html
+  const name = await getData();
+  console.log(name);
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <main className="flex min-h-screen flex-col place-content-center space-y-6">
