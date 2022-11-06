@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import crosshairs from "./api/crosshairs";
 
 const Page: NextPage = () => {
   const crosshairs = [
