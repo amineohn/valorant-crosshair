@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import { classNames } from "../../utils/classNames";
+import { classNames } from "../utils/classNames";
 const Navigation = () => {
   const router = useRouter();
   const items = [
