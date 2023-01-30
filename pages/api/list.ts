@@ -1,13 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import fs from "fs";
+import { Firebase } from "../../services/firebase.service";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const data = fs.readdirSync("./public/crosshairs");
-  const crosshairs = data.map((crosshair) => {
-    return {
-      name: crosshair,
-      path: `/crosshairs/${crosshair}`,
-    };
+  const firebase = new Firebase();
+  firebase.collection("crosshairs").onSnapshot((snapshot) => {
+    const list = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    res.status(200).json(list);
   });
-
-  res.status(200).json(crosshairs);
 }
