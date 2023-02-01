@@ -9,8 +9,8 @@ const Navigation = () => {
   const router = useRouter();
   const items = [
     {
-      name: "Home",
-      path: "/",
+      name: "Crosshairs",
+      path: "/crosshairs",
     },
   ];
   return (
@@ -21,7 +21,9 @@ const Navigation = () => {
             <button onClick={() => router?.push("/")}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white transition-all duration-200 ease-linear hover:text-[#FD4556]"
+                className={`"h-8 w-8 text-white transition-all duration-200 ease-linear hover:text-[#FD4556] ${
+                  router.pathname === "/" ? "text-[#FD4556]" : "text-white"
+                }`}
                 fill="none"
                 viewBox="0 0 100 100"
               >
