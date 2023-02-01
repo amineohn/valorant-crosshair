@@ -6,6 +6,7 @@ const poppins = Poppins({
   style: "normal",
   display: "swap",
   preload: true,
+  subsets: ["latin"],
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {

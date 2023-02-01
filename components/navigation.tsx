@@ -55,7 +55,7 @@ const Navigation = () => {
             </div>
           ))}
 
-          <Menu as="div" className="relative inline-block text-left">
+          <Menu as="div" className="relative inline-block hidden text-left">
             <div>
               <Menu.Button className="inline-flex w-full justify-center rounded-md border border-transparent px-4 py-2 text-sm font-semibold uppercase text-white focus:outline-none">
                 Weapons
